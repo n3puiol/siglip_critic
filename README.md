@@ -1,4 +1,8 @@
 # Video-Language Critic (VLC): Transferable Reward Functions for Language-Conditioned Robotics
+Official implementation of:
+<p align="center"><b>Video-Language Critic: Transferable Reward Functions for Language-Conditioned Robotics</b><br>
+Minttu Alakuijala, Reginald McLean, Isaac Woungang, Nariman Farsad, Samuel Kaski, Pekka Marttinen, Kai Yuan<br>
+<a href=https://arxiv.org/abs/2405.19988>[Paper]</a><br>
 
 ## Setup
 
