@@ -1,0 +1,22 @@
+.git
+.idea
+__pycache__
+ckpts/
+datasets/
+model/
+*.pt
+*~
+experiments
+logs
+*.out
+*egg-info/
+
+# W & B
+wandb/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Jupyter
+.ipynb_checkpoints/
