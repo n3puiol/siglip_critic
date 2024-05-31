@@ -50,7 +50,7 @@ To train RL policies with the reward models, please see [https://github.com/regi
 ## Citation
 
 If you found this implementation or the trained models useful, please cite our work as
-```
+```bibtex
 @article{alakuijala2024videolanguage,
     title={Video-Language Critic: Transferable Reward Functions for Language-Conditioned Robotics},
     author={Minttu Alakuijala and Reginald McLean and Isaac Woungang and Nariman Farsad and Samuel Kaski and Pekka Marttinen and Kai Yuan},
