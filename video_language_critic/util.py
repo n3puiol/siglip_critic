@@ -668,6 +668,39 @@ def init_model(args, device, n_gpu, local_rank, ckpt=None, verbose=True):
 
     return model
 
+def init_siglip_model(args, device, n_gpu, local_rank, ckpt=None, verbose=True):
+    if args.init_model:
+        model_file = os.path.join(args.init_model, "pytorch_model.bin")
+        if os.path.exists(model_file):
+            model_state_dict = torch.load(model_file, map_location="cpu")
+        else:
+            model_state_dict = None
+    else:
+        model_state_dict = None
+
+    # CLIP4Clip hard-coded model configuration
+    cross_model_name = "cross-base"
+    if hasattr(args, "cross_model"):
+        cross_model_name = args.cross_model
+
+    cache_dir = args.cache_dir if hasattr(args, "cache_dir") else None
+    type_vocab_size = 2
+
+    # Import SigLIP model
+    from .modules.modeling_siglip import SigLIP4SigLIP
+    
+    model = SigLIP4SigLIP.from_pretrained(
+        cross_model_name,
+        cache_dir=cache_dir,
+        state_dict=model_state_dict,
+        task_config=args,
+        verbose=verbose,
+    )
+
+    model.to(device)
+
+    return model
+
 
 def prep_optimizer(
     args, model, num_train_optimization_steps, device, n_gpu, local_rank, coef_lr=1.0
